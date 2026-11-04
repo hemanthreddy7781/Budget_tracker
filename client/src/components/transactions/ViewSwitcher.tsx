@@ -15,14 +15,14 @@ interface Props {
 
 export default function ViewSwitcher({ active, onChange, onSearchOpen }: Props) {
   return (
-    <div className="flex items-center justify-between mb-4.5">
+    <div className="flex items-center justify-between gap-2 mb-4.5 min-w-0">
       <div className="inline-flex gap-1 bg-border rounded-[15px] p-1.25">
         {VIEWS.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => onChange(key)}
             className={[
-              'px-3 sm:px-4.5 py-2.25 rounded-[11px] text-[12px] sm:text-[13.5px] font-semibold border-0 cursor-pointer transition-all duration-150',
+              'px-2.5 sm:px-4.5 py-2 rounded-[11px] text-[11px] sm:text-[13.5px] font-semibold border-0 cursor-pointer transition-all duration-150',
               active === key
                 ? 'bg-surface text-text-primary font-bold shadow-[0_2px_8px_rgba(37,99,235,0.12)]'
                 : 'bg-transparent text-text-muted hover:text-text-primary',
