@@ -62,13 +62,13 @@ export default function CalendarView({ year, month, settings, calendarData }: Pr
   const { headers, rows } = buildGrid(year, month, settings.week_start);
 
   return (
-    <div className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) overflow-hidden">
+    <div className="bg-surface border border-border rounded-[14px] sm:rounded-[20px] shadow-(--shadow-card) overflow-hidden">
       {/* Day-of-week headers */}
       <div className="grid grid-cols-7 border-b border-border">
         {headers.map((h) => (
           <div
             key={h}
-            className="py-3 text-center text-xs font-semibold text-text-muted tracking-wide"
+            className="py-2 sm:py-3 text-center text-[10px] sm:text-xs font-semibold text-text-muted tracking-wide"
           >
             {DAY_SHORT[h]}
           </div>
@@ -101,7 +101,7 @@ export default function CalendarView({ year, month, settings, calendarData }: Pr
                 key={ci}
                 onClick={() => setSelectedDay(day)}
                 className={[
-                  'min-h-18 p-1.5 flex flex-col cursor-pointer transition-colors duration-100',
+                  'min-h-14 sm:min-h-18 p-0.5 sm:p-1.5 flex flex-col cursor-pointer transition-colors duration-100',
                   borderRight,
                   isSelected && !isToday ? 'bg-accent-soft' : '',
                   !isSelected && !isToday ? 'hover:bg-bg/50' : '',
@@ -125,12 +125,12 @@ export default function CalendarView({ year, month, settings, calendarData }: Pr
                 {data && (
                   <div className="flex flex-col gap-0.5 mt-auto">
                     {data.income > 0 && (
-                      <span className="text-[10px] font-semibold text-income leading-none truncate">
+                      <span className="text-[8px] sm:text-[10px] font-semibold text-income leading-none truncate">
                         {formatMoney(data.income, sym, pos)}
                       </span>
                     )}
                     {data.expense < 0 && (
-                      <span className="text-[10px] font-semibold text-expense leading-none truncate">
+                      <span className="text-[8px] sm:text-[10px] font-semibold text-expense leading-none truncate">
                         {formatMoney(Math.abs(data.expense), sym, pos)}
                       </span>
                     )}
