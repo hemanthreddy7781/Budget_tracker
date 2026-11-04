@@ -19,10 +19,10 @@ export default function IncomeExpenseChart({ bars, settings }: Props) {
   const isAnyActive = activeIdx !== null;
 
   return (
-    <div className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) p-5">
-      <div className="flex items-center justify-between mb-5">
+    <div className="min-w-0 bg-surface border border-border rounded-[16px] sm:rounded-[20px] shadow-(--shadow-card) p-3.5 sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-5">
         <h3 className="text-sm font-extrabold text-text-primary">Income vs Expenses</h3>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <span className="flex items-center gap-1.5 text-xs font-semibold text-text-muted">
             <span className="w-2.5 h-2.5 rounded-[3px] bg-income inline-block shrink-0" />
             {active ? (
@@ -51,7 +51,7 @@ export default function IncomeExpenseChart({ bars, settings }: Props) {
           No transaction data for this period
         </div>
       ) : (
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 sm:gap-2">
           {bars.map((bar, i) => {
             const isActive = activeIdx === i;
             const hasData = bar.income > 0 || bar.expense > 0;
