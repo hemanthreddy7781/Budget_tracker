@@ -20,7 +20,7 @@ export default function DailyView({ groups, settings, onEdit }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex min-w-0 flex-col gap-4 sm:gap-6">
       {groups.map((group) => {
         const groupTotal = group.items.reduce((s, t) => s + t.amt, 0);
 
@@ -43,7 +43,7 @@ export default function DailyView({ groups, settings, onEdit }: Props) {
             </div>
 
             {/* Transaction list */}
-            <div className="bg-surface border border-border rounded-[20px] overflow-hidden shadow-(--shadow-card)">
+            <div className="bg-surface border border-border rounded-[16px] sm:rounded-[20px] overflow-hidden shadow-(--shadow-card)">
               {group.items.map((tx, i) => {
                 const isLast = i === group.items.length - 1;
 
@@ -52,7 +52,7 @@ export default function DailyView({ groups, settings, onEdit }: Props) {
                     key={tx.id}
                     onClick={() => onEdit(tx.id)}
                     className={[
-                      'flex items-center gap-3.5 py-3.5 px-4.5 cursor-pointer hover:bg-bg/60 transition-colors',
+                      'flex items-center gap-2.5 sm:gap-3.5 py-3.5 px-3 sm:px-4.5 cursor-pointer hover:bg-bg/60 transition-colors',
                       !isLast && 'border-b border-bg',
                     ].join(' ')}
                   >
