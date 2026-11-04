@@ -26,8 +26,8 @@ export default function SettingsPage({
   onThemeChange,
 }: Props) {
   return (
-    <div className="flex flex-col gap-4">
-      <section className="rounded-xl border border-border bg-surface p-5">
+    <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
+      <section className="rounded-xl border border-border bg-surface p-4 sm:p-5">
         <h2 className="text-base font-semibold text-text-primary">
           Appearance
         </h2>
@@ -36,7 +36,7 @@ export default function SettingsPage({
           Choose your preferred appearance.
         </p>
 
-        <div className="mt-4 flex gap-3">
+        <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
           <button
             type="button"
             onClick={() => onThemeChange('light')}
