@@ -28,7 +28,7 @@ interface StatCardProps {
 
 function StatCard({ icon: Icon, label, value, color }: StatCardProps) {
   return (
-    <div className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) p-5">
+    <div className="min-w-0 bg-surface border border-border rounded-[16px] sm:rounded-[20px] shadow-(--shadow-card) p-3.5 sm:p-5">
       <div
         className="w-9 h-9 rounded-[11px] flex items-center justify-center mb-3"
         style={{ background: `color-mix(in srgb, ${color} 14%, #ffffff)` }}
@@ -36,7 +36,7 @@ function StatCard({ icon: Icon, label, value, color }: StatCardProps) {
         <Icon size={17} color={color} />
       </div>
       <div className="text-xs font-semibold text-text-muted mb-1">{label}</div>
-      <div className="text-[17px] font-extrabold text-text-primary tabular-nums">{value}</div>
+      <div className="break-words text-sm sm:text-[17px] font-extrabold text-text-primary tabular-nums">{value}</div>
     </div>
   );
 }
@@ -137,7 +137,7 @@ export default function StatsPage({
   const expenseCategories = rawCategories.filter((c) => c.type === 'expense').map(toItem);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
       {/* View toggle + annual year navigation */}
       <div className="flex items-center gap-3">
         <div className="inline-flex gap-1 bg-border rounded-[15px] p-1.25">
@@ -158,7 +158,7 @@ export default function StatsPage({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-2.5 sm:gap-4">
         <StatCard
           icon={TrendingUp}
           label="Total Income"
