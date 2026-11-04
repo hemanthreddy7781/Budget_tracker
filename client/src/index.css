@@ -49,6 +49,7 @@ body,
 #root {
   height: 100%;
   width: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -65,8 +66,30 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+button, input, select, textarea {
+  font: inherit;
+}
+
 button {
-  font-family: inherit;
+  touch-action: manipulation;
+}
+
+input, select, textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+
+img, svg, canvas {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 *::-webkit-scrollbar {
