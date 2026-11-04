@@ -125,7 +125,7 @@ export default function AddTransactionModal({ onClose, settings, transaction, on
       <div
         onClick={(e) => e.stopPropagation()}
         className="bg-surface rounded-t-3xl md:rounded-3xl shadow-xl w-full md:max-w-md"
-        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+        style={{ paddingBottom: 'max(env(safe-area-inset-bottom, 0px), 12px)' }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4">

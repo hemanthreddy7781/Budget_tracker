@@ -29,7 +29,7 @@ function IncomeList({ items, settings }: { items: CategoryItem[]; settings: User
         const pct = (cat.amount / maxAmt) * 100;
         return (
           <div key={cat.id}>
-            <div className="flex items-center gap-2 mb-1.5">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-1.5">
               <span className="text-sm font-semibold text-text-primary flex-1 min-w-0 truncate">
                 {cat.name}
               </span>
@@ -116,7 +116,7 @@ function ExpenseList({
 
 export default function CategoryBreakdown({ income, expenses, settings, budgetMap }: Props) {
   return (
-    <div className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) p-5">
+    <div className="min-w-0 bg-surface border border-border rounded-[16px] sm:rounded-[20px] shadow-(--shadow-card) p-3.5 sm:p-5">
       <h3 className="text-sm font-extrabold text-text-primary mb-5">Categories</h3>
 
       <div className="flex flex-col gap-6">

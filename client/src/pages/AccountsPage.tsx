@@ -32,11 +32,11 @@ export default function AccountsPage({ settings }: Props) {
   const sections = grouped;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
       {/* Net worth hero */}
-      <div className="rounded-[20px] p-7 text-white bg-[linear-gradient(150deg,#2563eb,#0ea5e9)] shadow-(--shadow-card)">
+      <div className="rounded-[18px] sm:rounded-[20px] p-5 sm:p-7 text-white bg-[linear-gradient(150deg,#2563eb,#0ea5e9)] shadow-(--shadow-card)">
         <div className="text-sm font-semibold opacity-80 mb-2">Net Worth</div>
-        <div className="text-3xl font-extrabold tabular-nums mb-3">
+        <div className="text-2xl sm:text-3xl font-extrabold tabular-nums mb-3 break-words">
           {formatMoney(netWorth, sym, pos)}
         </div>
         <div className="text-xs opacity-70">{accounts.length} accounts</div>
@@ -48,7 +48,7 @@ export default function AccountsPage({ settings }: Props) {
           <div className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-2 px-0.5">
             {group.name}
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
             {sectionAccounts.map((account) => {
               const Icon = getLucideIcon(account.icon);
               const isNegative = account.balance < 0;
@@ -59,7 +59,7 @@ export default function AccountsPage({ settings }: Props) {
               return (
                 <div
                   key={account.id}
-                  className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) p-5"
+                  className="min-w-0 bg-surface border border-border rounded-[18px] sm:rounded-[20px] shadow-(--shadow-card) p-4 sm:p-5"
                 >
                   <div className="flex items-center gap-3 mb-5">
                     <div
@@ -78,7 +78,7 @@ export default function AccountsPage({ settings }: Props) {
 
                   <div
                     className={[
-                      'text-xl font-extrabold tabular-nums',
+                      'text-lg sm:text-xl font-extrabold tabular-nums break-words',
                       isNegative ? 'text-expense' : 'text-text-primary',
                     ].join(' ')}
                   >

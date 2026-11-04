@@ -16,7 +16,7 @@ interface Props {
 export default function BottomNav({ activeTab, onTabChange }: Props) {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-30 bg-surface border-t border-border flex md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md border-t border-border flex lg:hidden shadow-[0_-8px_24px_rgba(15,23,42,0.06)]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       {NAV_ITEMS.map(({ key, label, icon }) => {
@@ -26,12 +26,12 @@ export default function BottomNav({ activeTab, onTabChange }: Props) {
             key={key}
             onClick={() => onTabChange(key)}
             className={[
-              'flex-1 flex flex-col items-center justify-center gap-1 py-3 border-0 cursor-pointer transition-colors bg-transparent',
+              'flex-1 min-w-0 flex flex-col items-center justify-center gap-1 py-2.5 sm:py-3 border-0 cursor-pointer transition-colors bg-transparent',
               active ? 'text-accent' : 'text-text-muted',
             ].join(' ')}
           >
             {icon}
-            <span className="text-[10px] font-semibold">{label}</span>
+            <span className="text-[10px] sm:text-[11px] font-semibold truncate max-w-full">{label}</span>
           </button>
         );
       })}
