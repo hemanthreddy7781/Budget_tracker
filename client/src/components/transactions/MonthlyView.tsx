@@ -101,7 +101,7 @@ export default function MonthlyView({ year, settings, onEdit }: Props) {
   const toggleMonth = (m: number) => setExpandedMonth((prev) => (prev === m ? null : m));
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
       {/* Month rows */}
       <div className="bg-surface border border-border rounded-[20px] shadow-(--shadow-card) overflow-hidden">
         {Array.from({ length: 12 }, (_, i) => {
@@ -117,22 +117,22 @@ export default function MonthlyView({ year, settings, onEdit }: Props) {
                 onClick={() => hasData && toggleMonth(i)}
                 disabled={!hasData}
                 className={[
-                  'w-full flex items-center gap-3 px-4.5 py-3.5 transition-colors text-left',
+                  'w-full flex items-center gap-3 px-3 sm:px-4.5 py-3.5 transition-colors text-left',
                   hasData ? 'hover:bg-bg/60 cursor-pointer' : 'cursor-default opacity-40',
                   isExpanded ? 'bg-bg/40' : '',
                 ].join(' ')}
               >
-                <span className="text-sm font-semibold text-text-primary w-24 shrink-0">
+                <span className="text-sm font-semibold text-text-primary w-20 sm:w-24 shrink-0">
                   {MONTH_LONG[i]}
                 </span>
 
                 {hasData ? (
                   <>
                     <div className="flex-1 flex items-center gap-3 justify-end">
-                      <span className="text-xs font-semibold text-income tabular-nums">
+                      <span className="text-[10px] sm:text-xs font-semibold text-income tabular-nums">
                         +{formatMoney(income, sym, pos)}
                       </span>
-                      <span className="text-xs font-semibold text-expense tabular-nums">
+                      <span className="text-[10px] sm:text-xs font-semibold text-expense tabular-nums">
                         −{formatMoney(expenses, sym, pos)}
                       </span>
                     </div>
