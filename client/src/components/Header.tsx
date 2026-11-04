@@ -44,7 +44,7 @@ export default function Header({
     (tab === 'transactions' && txView !== 'monthly') || (tab === 'stats' && statsView !== 'annual');
 
   return (
-    <header className="flex items-center justify-between gap-2 sm:gap-4 px-4 md:px-8.5 pt-5 md:pt-6.5 pb-4">
+    <header className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 px-3 sm:px-5 lg:px-8.5 pt-4 sm:pt-6 pb-3 sm:pb-4">
       <div className="min-w-0">
         <div className="text-[19px] sm:text-[21px] md:text-[25px] font-extrabold tracking-[-0.02em] truncate">
           {title}
@@ -52,7 +52,7 @@ export default function Header({
         <div className="hidden md:block text-sm text-text-muted mt-0.75">{subtitle}</div>
       </div>
 
-      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+      <div className="flex items-center gap-1.5 sm:gap-3 min-w-0 shrink-0">
         {showMonthNav && (
           <div className="flex items-center gap-0.5 bg-surface border border-border rounded-[14px] p-1.25">
             <button
@@ -61,7 +61,7 @@ export default function Header({
             >
               <ChevronLeft size={18} />
             </button>
-            <span className="font-bold text-sm px-2">{monthLabel}</span>
+            <span className="font-bold text-xs sm:text-sm px-1.5 sm:px-2 whitespace-nowrap">{monthLabel}</span>
             <button
               onClick={onNextMonth}
               className="w-8 h-8 border-0 bg-transparent rounded-[10px] text-text-muted cursor-pointer flex items-center justify-center hover:bg-bg transition-colors"
@@ -80,7 +80,7 @@ export default function Header({
             >
               <ChevronLeft size={18} />
             </button>
-            <span className="font-bold text-sm px-2 tabular-nums">{viewYear}</span>
+            <span className="font-bold text-xs sm:text-sm px-1.5 sm:px-2 tabular-nums">{viewYear}</span>
             <button
               onClick={onNextYear}
               disabled={viewYear >= new Date().getFullYear()}
@@ -94,7 +94,7 @@ export default function Header({
         {showAdd && (
           <button
             onClick={onAddTransaction}
-            className="flex items-center gap-2 bg-accent text-white border-0 rounded-[14px] px-3 md:px-4.5 py-2.75 font-bold text-sm cursor-pointer shadow-[0_8px_20px_color-mix(in_srgb,#2563eb_34%,transparent)] hover:opacity-90 transition-opacity"
+            className="flex items-center justify-center gap-2 bg-accent text-white border-0 rounded-[14px] px-3 sm:px-4.5 py-2.5 sm:py-2.75 font-bold text-sm cursor-pointer shadow-[0_8px_20px_color-mix(in_srgb,#2563eb_34%,transparent)] hover:opacity-90 transition-opacity"
           >
             <Plus size={18} />
             <span className="hidden lg:inline">Add transaction</span>
