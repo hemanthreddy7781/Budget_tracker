@@ -81,7 +81,7 @@ function AppShell() {
     .reduce((s, tx) => s + Math.abs(tx.amount), 0);
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-bg text-text-primary">
+    <div className="flex min-h-dvh w-full overflow-hidden bg-bg text-text-primary">
       <Sidebar
         activeTab={tab}
         onTabChange={setTab}
@@ -93,7 +93,7 @@ function AppShell() {
       />
 
       <main className="flex flex-1 flex-col overflow-hidden min-w-0">
-        <div className="flex items-center justify-end gap-3 border-b border-border px-4 py-2 text-xs text-text-secondary">
+        <div className="flex items-center justify-between gap-2 border-b border-border px-4 sm:px-6 py-2.5 text-xs text-text-secondary">
           <span>
             {user?.name} · {user?.email}
           </span>
@@ -103,7 +103,7 @@ function AppShell() {
               logout();
               queryClient.clear();
             }}
-            className="rounded-md border border-border px-3 py-1.5 hover:bg-bg"
+            className="shrink-0 rounded-lg border border-border px-3 py-2 text-xs font-semibold hover:bg-bg"
           >
             Sign out
           </button>
@@ -131,7 +131,7 @@ function AppShell() {
           }
         />
 
-        <div className="flex-1 overflow-auto px-4 md:px-8.5 pt-2.5 pb-28 md:pb-11">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 sm:px-5 lg:px-8.5 pt-2 pb-[calc(5.75rem+env(safe-area-inset-bottom))] lg:pb-8">
           {tab === 'transactions' && (
             <TransactionsPage
               year={year}
