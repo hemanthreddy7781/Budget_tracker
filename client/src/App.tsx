@@ -81,7 +81,7 @@ function AppShell() {
     .reduce((s, tx) => s + Math.abs(tx.amount), 0);
 
   return (
-    <div className="flex min-h-dvh w-full overflow-hidden bg-bg text-text-primary">
+    <div className="flex h-dvh min-h-0 w-full overflow-hidden bg-bg text-text-primary">
       <Sidebar
         activeTab={tab}
         onTabChange={setTab}
@@ -92,7 +92,7 @@ function AppShell() {
         budgetTotal={budgetTotal}
       />
 
-      <main className="flex flex-1 flex-col overflow-hidden min-w-0">
+      <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
         <div className="flex items-center justify-between gap-2 border-b border-border px-4 sm:px-6 py-2.5 text-xs text-text-secondary">
           <span>
             {user?.name} · {user?.email}
